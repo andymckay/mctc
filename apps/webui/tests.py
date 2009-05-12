@@ -1,7 +1,10 @@
 from django.test import TestCase                
 from django.test.client import Client
+from django.conf import settings
 
 from apps.mctc.models.general import Case
+
+settings.DEBUG = True
 
 class dashboard(TestCase):
     fixtures = ["users.json", "overall.json"]

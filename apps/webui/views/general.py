@@ -18,7 +18,7 @@ from datetime import datetime, timedelta
 import time
 
 from urllib import quote, urlopen
-from apps.reusable_tables.table import get
+from reusable_table.table import get
 
 # not quite sure how to figure this out programatically
 domain = "localhost"

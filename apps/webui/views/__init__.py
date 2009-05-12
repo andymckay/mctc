@@ -1,4 +1,4 @@
-from apps.reusable_tables.table import register
+from reusable_table.table import register
 from apps.mctc.models.general import Case
 
 from apps.mctc.models.logs import MessageLog, EventLog

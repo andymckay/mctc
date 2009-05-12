@@ -33,6 +33,16 @@ Starting with a stock Debian/Ubuntu system:
 
     $ apt-get install python-reportlab
 
+# Download and install reusable-tables, this is a component for the 
+# web user interface and is required
+
+    $ cd ~
+    $ git clone git://github.com/andymckay/django-reusable-tables.git
+    $ cd django-reusable-tables
+    $ python setup.py install
+    $ cd ..
+    $ rm -rf django-reusable-tables
+
 # Edit the rapidsms.ini file. Make sure it contains the following:
 
     [rapidsms]
