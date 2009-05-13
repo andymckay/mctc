@@ -3,8 +3,26 @@
 
 import sys, os
 sys.path.append(os.path.join(os.getcwd(),'lib'))
-    
-import rapidsms
+
+# override the standard method for running this
+# so that we can include settings.py and our own
+# settings
+
+from rapidsms.config import Config
+from rapidsms.manager import Manager
+from django.core.management import execute_manager, setup_environ
+
+# we know it will be rapidsms.ini in this projects
+os.environ["RAPIDSMS_INI"] = "rapidsms.ini" 
+os.environ["DJANGO_SETTINGS_MODULE"] = "settings.py"
+
+conf = Config(os.environ["RAPIDSMS_INI"])
+import settings
+setup_environ(settings) 
 
 if __name__ == "__main__":
-    rapidsms.manager.start(sys.argv)
+    if hasattr(Manager, sys.argv[1]):
+        handler = getattr(Manager(), sys.argv[1])
+        handler(conf, *sys.argv[2:])
+    elif settings:        
+        execute_manager(settings)
