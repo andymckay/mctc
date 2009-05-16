@@ -4,6 +4,8 @@ from django.contrib.contenttypes import generic
 from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User
 
+from malnutrition.models import log
+
 from datetime import datetime
 
 # since there's only ever going to be a limited number of message
@@ -20,6 +22,11 @@ messages = {
     "case_cancelled": _("Case was cancelled by the provider"),
     "note_added": _("Note added to the case by the provider")    
 }
+
+class MessageLog(log.MessageLog):
+    """ A wrapper to pull in the app_label """
+    class Meta(log.MessageLog.Meta):
+        app_label = "mctc"
 
 class EventLog(models.Model):
     """ This is a much more refined log, giving you nicer messages """
@@ -47,19 +54,3 @@ def log(source, message):
     ev.created_at = datetime.now()
     ev.save()
 
-class MessageLog(models.Model):
-    """ This is the raw dirt message log, useful for some things """
-    mobile      = models.CharField(max_length=255, db_index=True)
-    sent_by     = models.ForeignKey(User, null=True)
-    text        = models.TextField(max_length=255)
-    was_handled = models.BooleanField(default=False, db_index=True)
-    created_at  = models.DateTimeField(db_index=True)
-
-    class Meta:
-        app_label = "mctc"
-        ordering = ("-created_at",)        
-
-    def save(self, *args):
-        if not self.id:
-            self.created_at = datetime.now()
-        super(MessageLog, self).save(*args)

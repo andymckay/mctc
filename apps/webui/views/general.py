@@ -11,7 +11,7 @@ from apps.mctc.models.logs import MessageLog, EventLog
 from apps.mctc.models.general import Case, Zone, Provider
 from apps.mctc.models.reports import ReportMalnutrition, ReportMalaria, ReportDiagnosis
 
-from rapidsms_baseui.views.shortcuts import as_html, login_required
+from malnutrition.ui.views.shortcuts import as_html, login_required
 from apps.webui.forms.general import MessageForm
 
 from datetime import datetime, timedelta

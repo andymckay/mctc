@@ -22,5 +22,5 @@ urlpatterns = patterns('',
         "form_class": CaseForm
     }),
     
-    (r'^', include('rapidsms_baseui.urls')),
+    (r'^', include('malnutrition.ui.urls')),
 )

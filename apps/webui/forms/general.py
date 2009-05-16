@@ -3,7 +3,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.contrib.auth.models import User, Group
 from django.forms.util import ErrorList
 
-from rapidsms_baseui.forms.base import BaseForm, BaseModelForm
+from malnutrition.ui.forms.base import BaseForm, BaseModelForm
 from apps.mctc.models.general import Provider, Case
 
 from urllib import quote

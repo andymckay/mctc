@@ -413,8 +413,8 @@ class TestApp (TestScript):
         7654321 < New +108: JAMES, Billy M/%dm (None) Whiskey
         
         7654321 > mrdt +108 y n f
-        7654321 < MRDT> Child +108, JAMES, Billy, M/22m has MALARIA. Child is less than 3. Please provide 1 tab of Coartem (ACT) twice a day for 3 days
-        7654322 < MRDT> Child +108, JAMES, Billy, M/22m (None) has MALARIA. CHW: @jdoe 7654321
+        7654321 < MRDT> Child +108, JAMES, Billy, M/23m has MALARIA. Child is less than 3. Please provide 1 tab of Coartem (ACT) twice a day for 3 days
+        7654322 < MRDT> Child +108, JAMES, Billy, M/23m (None) has MALARIA. CHW: @jdoe 7654321
         
         7654321 > cancel +108
         7654321 < Cannot cancel +108: case has malaria reports.        

@@ -32,7 +32,11 @@ class CaseAdmin(admin.ModelAdmin):
 
 admin.site.register(Case, CaseAdmin)
 admin.site.register(Provider)
-admin.site.register(Zone)
+
+class ZoneAdmin(admin.ModelAdmin):
+    list_display = ("name", "head", "get_category_display")
+
+admin.site.register(Zone, ZoneAdmin)
 admin.site.register(Facility)
 admin.site.register(Diagnosis)
 
